@@ -85,14 +85,30 @@ TRUNCATED_BRANCH_NAME_LENGTH=10
 
 ## 📸 Preview
 
-### Clean
-<img width="551" height="326" alt="clean" src="https://github.com/user-attachments/assets/773acfbf-65eb-4614-8111-4d33401b759d" />
+<div align="center">
 
-### Long branch name
-<img width="551" height="326" alt="long branch name" src="https://github.com/user-attachments/assets/c782f29a-fd1f-47c9-b775-61927f5635e2" />
+### 🎯 **Clean State** - Default appearance
+*Simple and clean with no additional indicators*
 
-### Custom aws profile name
-<img width="551" height="326" alt="custom aws profile" src="https://github.com/user-attachments/assets/7ca1ef66-7fff-4793-8510-48fba4ac1e35" />
+<img width="551" height="326" alt="Clean theme preview showing basic prompt with green arrow and directory" src="https://github.com/user-attachments/assets/773acfbf-65eb-4614-8111-4d33401b759d" />
+
+---
+
+### 🌿 **Git Branch Truncation** - Long branch names
+*Branch names longer than 7 characters are automatically truncated*
+
+<img width="551" height="326" alt="Long branch name preview showing truncated git branch in blue parentheses" src="https://github.com/user-attachments/assets/c782f29a-fd1f-47c9-b775-61927f5635e2" />
+
+---
+
+### ☁️ **AWS Profile Indicator** - Custom profile awareness
+*Yellow indicator shows when using non-default AWS profiles*
+
+<img width="551" height="326" alt="Custom AWS profile preview showing yellow profile indicator" src="https://github.com/user-attachments/assets/7ca1ef66-7fff-4793-8510-48fba4ac1e35" />
+
+</div>
+
+> 💡 **Tip**: The theme automatically adapts to your environment - AWS profiles only show when not using `default`, and Git branches are truncated intelligently to keep your prompt clean and readable.
 
 ---
 
