@@ -16,31 +16,6 @@ It keeps the simplicity of the original theme while adding **AWS profile awarene
 
 ## 📦 Installation
 
-### Option 1: Clone into Oh My Zsh custom themes
-
-```bash
-git clone https://github.com/ymulenll/oh-my-zsh-better-robbyrussell.git $ZSH_CUSTOM/themes/oh-my-zsh-better-robbyrussell
-```
-
-Then edit your `~/.zshrc`:
-
-```zsh
-ZSH_THEME="better-robbyrussell"
-plugins=(git aws)  # required
-```
-
-Reload with:
-
-```bash
-source ~/.zshrc
-```
-
----
-
-### Option 2: Quick Install (One-Liner)
-
-If you don’t want to clone manually, just run:
-
 ```bash
 curl -fsSL https://raw.githubusercontent.com/ymulenll/oh-my-zsh-better-robbyrussell/main/better-robbyrussell.zsh-theme -o $ZSH_CUSTOM/themes/better-robbyrussell.zsh-theme
 ```
