@@ -42,7 +42,7 @@ source ~/.zshrc
 If you don’t want to clone manually, just run:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ymulenll/oh-my-zsh-better-robbyrussell/main/themes/better-robbyrussell.zsh-theme -o $ZSH_CUSTOM/themes/better-robbyrussell.zsh-theme
+curl -fsSL https://raw.githubusercontent.com/ymulenll/oh-my-zsh-better-robbyrussell/main/better-robbyrussell.zsh-theme -o $ZSH_CUSTOM/themes/better-robbyrussell.zsh-theme
 ```
 
 Then edit your `~/.zshrc`:
