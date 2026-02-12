@@ -57,6 +57,12 @@ TRUNCATED_BRANCH_NAME_LENGTH=10
 ```
 (Only truncates if this variable is set)
 
+**Git branch start word:**
+```zsh
+TRUNCATED_BRANCH_NAME_START_WITH="CR-"
+```
+Extract branch name starting from a specific word/prefix. For example, with `TRUNCATED_BRANCH_NAME_START_WITH="CR-"` and `TRUNCATED_BRANCH_NAME_LENGTH=7`, a branch like `bugfix/CR-7777-fix-bug` will display as `CR-7777`.
+
 **Directory name truncation:**
 ```zsh
 TRUNCATED_DIR_NAME_LENGTH=15

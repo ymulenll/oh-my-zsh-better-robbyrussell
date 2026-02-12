@@ -40,9 +40,21 @@ git_prompt_info_truncated() {
   local ref=$(git symbolic-ref HEAD 2> /dev/null)
   if [[ -n $ref ]]; then
     local branch_name=${ref#refs/heads/}
+    
+    # If TRUNCATED_BRANCH_NAME_START_WITH is set, extract from that word onwards
+    if [[ -n "$TRUNCATED_BRANCH_NAME_START_WITH" ]]; then
+      local start_pos="${branch_name%%$TRUNCATED_BRANCH_NAME_START_WITH*}"
+      if [[ "$start_pos" != "$branch_name" ]]; then
+        # Found the start word, extract everything from it onwards
+        branch_name="${branch_name:${#start_pos}}"
+      fi
+    fi
+    
+    # Apply truncation if configured
     if [[ -n "$TRUNCATED_BRANCH_NAME_LENGTH" && ${#branch_name} -gt $TRUNCATED_BRANCH_NAME_LENGTH ]]; then
       branch_name="${branch_name:0:$TRUNCATED_BRANCH_NAME_LENGTH}"
     fi
+    
     echo "$ZSH_THEME_GIT_PROMPT_PREFIX$branch_name$ZSH_THEME_GIT_PROMPT_CLEAN$ZSH_THEME_GIT_PROMPT_SUFFIX"
   fi
 }
