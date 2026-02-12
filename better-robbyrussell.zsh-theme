@@ -11,6 +11,7 @@ aws_profile_info() {
 precmd() {
   GIT_BRANCH_INFO=$(git_prompt_info_truncated)
   AWS_PROFILE_INFO=$(aws_profile_info)
+  DIR_NAME_INFO=$(dir_name_truncated)
 }
 
 conditional_space() {
@@ -19,7 +20,7 @@ conditional_space() {
   fi
 }
 
-PROMPT="%(?:%{$fg_bold[green]%}%1{➜%}:%{$fg_bold[red]%}%1{➜%}) %{$fg[cyan]%}%c%{$reset_color%} "
+PROMPT="%(?:%{$fg_bold[green]%}%1{➜%}:%{$fg_bold[red]%}%1{➜%}) %{$fg[cyan]%}\$DIR_NAME_INFO%{$reset_color%} "
 PROMPT+='$AWS_PROFILE_INFO$GIT_BRANCH_INFO'
 PROMPT+='$(conditional_space)'
 
@@ -28,6 +29,15 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 TRUNCATED_BRANCH_NAME_LENGTH=7
+TRUNCATED_DIR_NAME_LENGTH=20
+
+dir_name_truncated() {
+  local dir_name=$(print -P %c)
+  if [[ ${#dir_name} -gt $TRUNCATED_DIR_NAME_LENGTH ]]; then
+    dir_name="${dir_name:0:$TRUNCATED_DIR_NAME_LENGTH}"
+  fi
+  echo "$dir_name"
+}
 
 git_prompt_info_truncated() {
   local ref=$(git symbolic-ref HEAD 2> /dev/null)
