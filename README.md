@@ -1,13 +1,14 @@
 # oh-my-zsh-better-robbyrussell
 
 A modernized twist on the default **robbyrussell** theme for [Oh My Zsh](https://ohmyz.sh/).  
-It keeps the simplicity of the original theme while adding **AWS profile awareness** and a **clean, truncated Git branch indicator**.
+It keeps the simplicity of the original theme while adding **AWS profile awareness** and a **clean Git branch indicator** (with optional truncation).
 
 ---
 
 ## ✨ Features
 - ✅ AWS profile indicator (in yellow, hidden if using `default`)
-- ✅ Git branch truncated (configurable length, default `7` chars)
+- ✅ Git branch display (optional truncation, disabled by default)
+- ✅ Directory name display (optional truncation, disabled by default)
 - ✅ Minimal look inspired by `robbyrussell`
 - ✅ Green arrow if last command succeeded, red arrow if it failed
 - ✅ Current directory in cyan
@@ -48,13 +49,19 @@ Make sure they’re listed in your `plugins=(...)` inside `~/.zshrc`.
 
 ## ⚙️ Configuration
 
-You can change the Git branch truncation length by adding this to your `~/.zshrc`:
+Truncation is **disabled by default**. To enable truncation, add these variables to your `~/.zshrc`:
 
+**Git branch truncation:**
 ```zsh
 TRUNCATED_BRANCH_NAME_LENGTH=10
 ```
+(Only truncates if this variable is set)
 
-(Default: `7`)
+**Directory name truncation:**
+```zsh
+TRUNCATED_DIR_NAME_LENGTH=15
+```
+(Only truncates if this variable is set)
 
 ---
 
@@ -70,7 +77,7 @@ TRUNCATED_BRANCH_NAME_LENGTH=10
 ---
 
 ### 🌿 **Git Branch Truncation** - Long branch names
-*Branch names longer than 7 characters are automatically truncated*
+*Branch names can be truncated by setting `TRUNCATED_BRANCH_NAME_LENGTH`*
 
 <img width="551" height="326" alt="Long branch name preview showing truncated git branch in blue parentheses" src="https://github.com/user-attachments/assets/c782f29a-fd1f-47c9-b775-61927f5635e2" />
 
@@ -83,7 +90,7 @@ TRUNCATED_BRANCH_NAME_LENGTH=10
 
 </div>
 
-> 💡 **Tip**: The theme automatically adapts to your environment - AWS profiles only show when not using `default`, and Git branches are truncated intelligently to keep your prompt clean and readable.
+> 💡 **Tip**: The theme automatically adapts to your environment - AWS profiles only show when not using `default`. Truncation is optional and can be enabled by setting `TRUNCATED_BRANCH_NAME_LENGTH` and/or `TRUNCATED_DIR_NAME_LENGTH` in your `~/.zshrc`.
 
 ---
 

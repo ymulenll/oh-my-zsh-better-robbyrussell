@@ -28,12 +28,9 @@ ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
-TRUNCATED_BRANCH_NAME_LENGTH=7
-TRUNCATED_DIR_NAME_LENGTH=20
-
 dir_name_truncated() {
   local dir_name=$(print -P %c)
-  if [[ ${#dir_name} -gt $TRUNCATED_DIR_NAME_LENGTH ]]; then
+  if [[ -n "$TRUNCATED_DIR_NAME_LENGTH" && ${#dir_name} -gt $TRUNCATED_DIR_NAME_LENGTH ]]; then
     dir_name="${dir_name:0:$TRUNCATED_DIR_NAME_LENGTH}"
   fi
   echo "$dir_name"
@@ -43,7 +40,7 @@ git_prompt_info_truncated() {
   local ref=$(git symbolic-ref HEAD 2> /dev/null)
   if [[ -n $ref ]]; then
     local branch_name=${ref#refs/heads/}
-    if [[ ${#branch_name} -gt $TRUNCATED_BRANCH_NAME_LENGTH ]]; then
+    if [[ -n "$TRUNCATED_BRANCH_NAME_LENGTH" && ${#branch_name} -gt $TRUNCATED_BRANCH_NAME_LENGTH ]]; then
       branch_name="${branch_name:0:$TRUNCATED_BRANCH_NAME_LENGTH}"
     fi
     echo "$ZSH_THEME_GIT_PROMPT_PREFIX$branch_name$ZSH_THEME_GIT_PROMPT_CLEAN$ZSH_THEME_GIT_PROMPT_SUFFIX"
