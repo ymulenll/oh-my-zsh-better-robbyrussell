@@ -41,12 +41,10 @@ git_prompt_info_truncated() {
   if [[ -n $ref ]]; then
     local branch_name=${ref#refs/heads/}
     
-    # If TRUNCATED_BRANCH_NAME_START_WITH is set, extract from that word onwards
-    if [[ -n "$TRUNCATED_BRANCH_NAME_START_WITH" ]]; then
-      local start_pos="${branch_name%%$TRUNCATED_BRANCH_NAME_START_WITH*}"
-      if [[ "$start_pos" != "$branch_name" ]]; then
-        # Found the start word, extract everything from it onwards
-        branch_name="${branch_name:${#start_pos}}"
+    # If TRUNCATE_BRANCH_NAME_BY_JIRA_TICKET is set, extract the Jira ticket id
+    if [[ -n "$TRUNCATE_BRANCH_NAME_BY_JIRA_TICKET" ]]; then
+      if [[ "$branch_name" =~ '[A-Z][A-Z0-9]+-[0-9]+' ]]; then
+        branch_name="$MATCH"
       fi
     fi
     

@@ -57,11 +57,11 @@ TRUNCATED_BRANCH_NAME_LENGTH=10
 ```
 (Only truncates if this variable is set)
 
-**Git branch start word:**
+**Truncate branch name by Jira ticket:**
 ```zsh
-TRUNCATED_BRANCH_NAME_START_WITH="CR-"
+TRUNCATE_BRANCH_NAME_BY_JIRA_TICKET=true
 ```
-Extract branch name starting from a specific word/prefix. For example, with `TRUNCATED_BRANCH_NAME_START_WITH="CR-"` and `TRUNCATED_BRANCH_NAME_LENGTH=7`, a branch like `bugfix/CR-7777-fix-bug` will display as `CR-7777`.
+When enabled, extracts the Jira ticket id (e.g. `ABC-123`) from the branch name and uses it as the displayed branch. For example, `bugfix/CR-7777-fix-bug` will display as `CR-7777`. If no Jira ticket id is found, the full branch name is shown.
 
 **Directory name truncation:**
 ```zsh
